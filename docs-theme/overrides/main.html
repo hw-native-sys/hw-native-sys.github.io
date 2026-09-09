@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+
+{% block extrahead %}
+  {{ super() }}
+  <meta name="pypto-docs-theme" content="1">
+  <script src="{{ 'assets/javascripts/preferences.js' | url }}"></script>
+{% endblock %}
+
+{% block header %}
+  <script>window.PyPTOTheme.apply();</script>
+  {% include "partials/pypto-header.html" %}
+{% endblock %}
+
+{% block scripts %}
+  {{ super() }}
+  <script>window.PyPTOTheme.connectMaterial();</script>
+{% endblock %}

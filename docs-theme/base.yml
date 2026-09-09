@@ -1,0 +1,51 @@
+# Paths to the overrides directory belong in the consuming mkdocs.yml.
+theme:
+  name: material
+  font: false
+  logo: assets/images/pypto.svg
+  favicon: assets/images/pypto.svg
+  features:
+    - navigation.tabs
+    - navigation.sections
+    - navigation.indexes
+    - navigation.top
+    - navigation.footer
+    - content.code.copy
+    - content.action.edit
+    - search.suggest
+    - search.highlight
+    - toc.follow
+  # A mapping avoids Material's per-project palette selector. The shared
+  # selector supports system/light/dark with one preference across projects.
+  palette:
+    scheme: default
+    primary: custom
+    accent: custom
+
+extra_css:
+  - assets/stylesheets/brand.css
+  - assets/stylesheets/docs.css
+
+extra:
+  homepage: https://www.pypto.ai/
+  pypto_projects:
+    - id: pypto
+      name: PyPTO
+      url: https://www.pypto.ai/pypto/
+      languages: [en, zh]
+    - id: simpler
+      name: Simpler
+      url: https://www.pypto.ai/simpler/
+      languages: [en]
+    - id: pypto-lib
+      name: PyPTO Lib
+      url: https://www.pypto.ai/pypto-lib/
+      languages: [en]
+    - id: pypto-serving
+      name: PyPTO Serving
+      url: https://www.pypto.ai/pypto-serving/
+      languages: [en]
+    - id: pypto-tools
+      name: PyPTO Toolkit
+      url: https://www.pypto.ai/pypto-tools/
+      languages: [en, zh]

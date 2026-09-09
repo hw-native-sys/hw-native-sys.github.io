@@ -1,0 +1,3 @@
+# Shared renderer versions. Project-specific plugins remain in each repository.
+mkdocs==1.6.1
+mkdocs-material==9.7.7

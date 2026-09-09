@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" class="no-js">
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -8,18 +8,20 @@
     <meta name="theme-color" content="#10121b" media="(prefers-color-scheme: dark)">
     <link rel="canonical" href="https://www.pypto.ai/">
     <title>PyPTO — Projects &amp; Documentation</title>
+    <link rel="icon" href="docs-theme/overrides/assets/images/pypto.svg">
+    <link rel="stylesheet" href="docs-theme/overrides/assets/stylesheets/brand.css">
+    <script src="docs-theme/overrides/assets/javascripts/preferences.js"></script>
     <style>
       :root {
-        color-scheme: light dark;
-        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-        --background: #f7f8fc;
-        --surface: #ffffff;
-        --text: #192039;
-        --muted: #59627a;
-        --line: #dfe3ee;
-        --accent: #4352c7;
-        --featured: #f0f2ff;
-        --shadow: 0 12px 32px rgb(25 32 57 / 6%);
+        font-family: var(--pypto-font);
+        --background: var(--pypto-background);
+        --surface: var(--pypto-surface);
+        --text: var(--pypto-text);
+        --muted: var(--pypto-muted);
+        --line: var(--pypto-line);
+        --accent: var(--pypto-accent);
+        --featured: var(--pypto-featured);
+        --shadow: var(--pypto-shadow);
       }
 
       * { box-sizing: border-box; }
@@ -33,9 +35,7 @@
       .skip-link:focus { top: 1rem; }
       .site-header { display: flex; align-items: center; justify-content: space-between; gap: 1.5rem; padding-block: 1.75rem; border-bottom: 1px solid var(--line); }
       .brand { display: inline-flex; align-items: center; gap: .7rem; font-size: 1.45rem; font-weight: 750; letter-spacing: -.05em; }
-      .brand-mark { display: grid; grid-template-columns: repeat(2, 9px); gap: 3px; padding: 9px; background: var(--accent); border-radius: 10px; }
-      .brand-mark span { width: 9px; height: 9px; border-radius: 1px; background: #fff; }
-      .brand-mark span:last-child { opacity: .45; }
+      .brand img { width: 40px; height: 40px; }
       .header-nav { display: flex; align-items: center; gap: 1.75rem; font-size: .9375rem; font-weight: 600; }
       .header-nav a { display: inline-flex; align-items: center; gap: .4rem; }
       .header-nav a:hover, .repo-link:hover, .site-footer a:hover { color: var(--accent); text-decoration: underline; text-underline-offset: 4px; }
@@ -62,20 +62,6 @@
       .repo-link { display: inline-flex; align-items: center; gap: .35rem; min-height: 44px; color: var(--muted); font-size: .875rem; }
       .site-footer { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 1rem; margin-top: 3.5rem; padding-block: 1.5rem 2rem; border-top: 1px solid var(--line); color: var(--muted); font-size: .875rem; line-height: 1.6; }
       .site-footer p { margin: 0; }
-
-      @media (prefers-color-scheme: dark) {
-        :root {
-          --background: #10121b;
-          --surface: #191d2b;
-          --text: #edf0ff;
-          --muted: #aab3cc;
-          --line: #343b53;
-          --accent: #a8b2ff;
-          --featured: #20263e;
-          --shadow: 0 12px 32px rgb(0 0 0 / 18%);
-        }
-        .brand-mark { background: #5262d7; }
-      }
 
       @media (max-width: 900px) {
         .projects { grid-template-columns: repeat(2, minmax(0, 1fr)); }
@@ -114,11 +100,19 @@
     <div class="shell">
       <header class="site-header">
         <a class="brand" href="/" aria-label="PyPTO home">
-          <span class="brand-mark" aria-hidden="true"><span></span><span></span><span></span><span></span></span>
+          <img src="docs-theme/overrides/assets/images/pypto.svg" alt="" width="40" height="40">
           PyPTO
         </a>
         <nav class="header-nav" aria-label="Main navigation">
           <a href="#projects">Projects</a>
+          <label class="pypto-theme-control">
+            <span class="pypto-visually-hidden">Color theme</span>
+            <select data-pypto-theme-select>
+              <option value="system">System</option>
+              <option value="light">Light</option>
+              <option value="dark">Dark</option>
+            </select>
+          </label>
           <a href="https://github.com/hw-native-sys">GitHub <svg aria-hidden="true"><use href="#arrow-up-right"/></svg></a>
         </nav>
       </header>
