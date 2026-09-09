@@ -1,0 +1,40 @@
+{% set chinese = lang.t('language').startswith('zh') %}
+<header class="md-header pypto-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="{{ lang.t('header') }}">
+    <label class="md-header__button md-icon" for="__drawer" aria-label="{{ '打开目录' if chinese else 'Open navigation' }}">
+      {% include ".icons/material/menu.svg" %}
+    </label>
+    <a class="pypto-brand" href="{{ config.extra.homepage }}" aria-label="{{ 'PyPTO 官网' if chinese else 'PyPTO home' }}">
+      <img src="{{ config.theme.logo | url }}" alt="" width="36" height="36">
+      <span>PyPTO</span>
+    </a>
+    {% include "partials/project-switcher.html" %}
+    <div class="pypto-header-spacer"></div>
+    {% if 'material/search' in config.plugins %}
+      {% set search = config.plugins['material/search'] | attr('config') %}
+      {% if search.enabled %}
+        <label class="md-header__button md-icon" for="__search" aria-label="{{ '搜索当前项目' if chinese else 'Search this project' }}">
+          {% include ".icons/material/magnify.svg" %}
+        </label>
+        {% include "partials/search.html" %}
+      {% endif %}
+    {% endif %}
+    {% if config.extra.alternate %}{% include "partials/alternate.html" %}{% endif %}
+    <label class="pypto-theme-control">
+      <span class="pypto-visually-hidden">{{ '配色主题' if chinese else 'Color theme' }}</span>
+      <select data-pypto-theme-select>
+        <option value="system">{{ '系统' if chinese else 'System' }}</option>
+        <option value="light">{{ '浅色' if chinese else 'Light' }}</option>
+        <option value="dark">{{ '深色' if chinese else 'Dark' }}</option>
+      </select>
+    </label>
+    {% if config.repo_url %}
+      <a class="pypto-source md-icon" href="{{ config.repo_url }}" aria-label="{{ config.site_name }} on GitHub" title="{{ config.site_name }} on GitHub">
+        {% include ".icons/fontawesome/brands/github.svg" %}
+      </a>
+    {% endif %}
+  </nav>
+  {% if 'navigation.tabs.sticky' in features and 'navigation.tabs' in features %}
+    {% include "partials/tabs.html" %}
+  {% endif %}
+</header>

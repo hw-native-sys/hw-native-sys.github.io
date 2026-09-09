@@ -1,0 +1,78 @@
+/* Shared by the organization homepage and every documentation build. */
+:root {
+  color-scheme: light;
+  --pypto-background: #f7f8fc;
+  --pypto-surface: #ffffff;
+  --pypto-text: #192039;
+  --pypto-muted: #59627a;
+  --pypto-line: #dfe3ee;
+  --pypto-accent: #4352c7;
+  --pypto-featured: #f0f2ff;
+  --pypto-shadow: 0 12px 32px rgb(25 32 57 / 6%);
+  --pypto-font: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  --pypto-code-font: ui-monospace, SFMono-Regular, Consolas, "Liberation Mono", monospace;
+}
+
+:root[data-pypto-theme="dark"] {
+  color-scheme: dark;
+  --pypto-background: #10121b;
+  --pypto-surface: #191d2b;
+  --pypto-text: #edf0ff;
+  --pypto-muted: #aab3cc;
+  --pypto-line: #343b53;
+  --pypto-accent: #a8b2ff;
+  --pypto-featured: #20263e;
+  --pypto-shadow: 0 12px 32px rgb(0 0 0 / 18%);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-pypto-theme]) {
+    color-scheme: dark;
+    --pypto-background: #10121b;
+    --pypto-surface: #191d2b;
+    --pypto-text: #edf0ff;
+    --pypto-muted: #aab3cc;
+    --pypto-line: #343b53;
+    --pypto-accent: #a8b2ff;
+    --pypto-featured: #20263e;
+    --pypto-shadow: 0 12px 32px rgb(0 0 0 / 18%);
+  }
+}
+
+.pypto-theme-control {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: var(--pypto-muted);
+  font: 14px var(--pypto-font);
+}
+
+.pypto-theme-control select {
+  min-height: 40px;
+  max-width: 100%;
+  padding: 6px 8px;
+  color: var(--pypto-text);
+  background: var(--pypto-surface);
+  border: 1px solid var(--pypto-line);
+  border-radius: 8px;
+  font: inherit;
+  cursor: pointer;
+}
+
+.pypto-theme-control select:focus-visible {
+  outline: 3px solid var(--pypto-accent);
+  outline-offset: 3px;
+}
+
+.pypto-visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+  border: 0;
+}
+
+.no-js .pypto-theme-control { display: none; }

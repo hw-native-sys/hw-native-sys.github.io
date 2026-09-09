@@ -1,0 +1,114 @@
+/* Material keeps its layout and behavior; these rules supply PyPTO's visuals. */
+:root {
+  --md-text-font: var(--pypto-font);
+  --md-code-font: var(--pypto-code-font);
+}
+
+body[data-md-color-scheme] {
+  --md-default-bg-color: var(--pypto-background);
+  --md-default-fg-color: var(--pypto-text);
+  --md-default-fg-color--light: var(--pypto-muted);
+  --md-default-fg-color--lighter: var(--pypto-line);
+  --md-primary-fg-color: var(--pypto-accent);
+  --md-primary-bg-color: var(--pypto-background);
+  --md-primary-bg-color--light: var(--pypto-muted);
+  --md-accent-fg-color: var(--pypto-accent);
+  --md-accent-fg-color--transparent: var(--pypto-featured);
+  --md-typeset-a-color: var(--pypto-accent);
+  --md-typeset-color: var(--pypto-text);
+  --md-admonition-fg-color: var(--pypto-text);
+  --md-code-bg-color: var(--pypto-surface);
+  --md-code-fg-color: var(--pypto-text);
+  --md-footer-bg-color: var(--pypto-surface);
+  --md-footer-bg-color--dark: var(--pypto-surface);
+  --md-footer-fg-color: var(--pypto-text);
+  --md-footer-fg-color--light: var(--pypto-muted);
+  --md-footer-fg-color--lighter: var(--pypto-muted);
+  --md-typeset-table-color: var(--pypto-line);
+  --md-typeset-table-color--light: var(--pypto-featured);
+  background: var(--pypto-background);
+}
+
+.md-grid { max-width: 72rem; }
+.md-header { color: var(--pypto-text); background: var(--pypto-surface); border-bottom: 1px solid var(--pypto-line); box-shadow: none; }
+.pypto-header .md-header__inner { min-height: 3.6rem; gap: .6rem; padding: .55rem .8rem; }
+.pypto-brand { display: inline-flex; flex-shrink: 0; align-items: center; gap: .5rem; font-size: 1.05rem; font-weight: 750; letter-spacing: -.04em; }
+.pypto-brand img { width: 1.8rem; height: 1.8rem; }
+.pypto-header-spacer { flex: 1; }
+.pypto-header .md-header__button { margin: 0; }
+.pypto-header .md-select__inner { inset-inline: auto 0; }
+.pypto-source { display: inline-flex; align-items: center; justify-content: center; min-width: 2rem; min-height: 2rem; }
+.pypto-source svg { width: 1rem; height: 1rem; }
+.pypto-project-switcher { position: relative; min-width: 0; color: var(--pypto-text); }
+.pypto-project-switcher summary { display: flex; align-items: center; gap: .5rem; min-height: 2rem; padding: .35rem .6rem; border: 1px solid var(--pypto-line); border-radius: .4rem; cursor: pointer; list-style: none; font-size: .75rem; font-weight: 600; }
+.pypto-project-switcher summary::-webkit-details-marker { display: none; }
+.pypto-project-switcher summary > span:first-child { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.pypto-project-switcher summary > svg { flex-shrink: 0; }
+.pypto-project-menu { position: absolute; top: calc(100% + .55rem); left: 0; z-index: 10; width: 15rem; max-width: calc(100vw - 2rem); padding: .5rem; background: var(--pypto-surface); border: 1px solid var(--pypto-line); border-radius: .6rem; box-shadow: var(--pypto-shadow); }
+.pypto-project-menu p { margin: .3rem .5rem .5rem; color: var(--pypto-muted); font-size: .65rem; }
+.pypto-project-menu a { display: flex; justify-content: space-between; align-items: center; gap: .6rem; min-height: 2.2rem; padding: .45rem .55rem; border-radius: .3rem; font-size: .75rem; }
+.pypto-project-menu a:hover, .pypto-project-menu a[aria-current] { color: var(--pypto-accent); background: var(--pypto-featured); }
+.pypto-project-menu small { color: var(--pypto-muted); font-size: .6rem; }
+.pypto-project-menu .pypto-project-home { margin-top: .4rem; border-top: 1px solid var(--pypto-line); border-radius: 0; }
+.md-tabs { background: var(--pypto-surface); border-bottom: 1px solid var(--pypto-line); }
+.md-tabs__link { font-size: .75rem; opacity: 1; color: var(--pypto-muted); }
+.md-tabs__link--active, .md-tabs__item--active .md-tabs__link { color: var(--pypto-accent); font-weight: 650; }
+.md-tabs__link:hover { color: var(--pypto-accent); }
+.md-tabs__item--active { border-bottom: 2px solid var(--pypto-accent); }
+.md-main__inner { margin-top: 1.6rem; }
+.md-content { min-width: 0; }
+.md-content__inner { margin-inline: 1.6rem; padding-bottom: 2rem; }
+.md-typeset { font-size: .8rem; line-height: 1.75; }
+.md-typeset h1 { color: var(--pypto-text); font-size: 1.9rem; font-weight: 700; letter-spacing: -.045em; line-height: 1.25; }
+.md-typeset h2 { font-weight: 650; letter-spacing: -.025em; }
+.md-typeset h3 { font-weight: 650; }
+.md-typeset a:hover { text-decoration: underline; text-underline-offset: .15em; }
+.md-typeset .md-button { border-radius: .4rem; }
+.md-typeset .md-button--primary { color: var(--pypto-background); background: var(--pypto-accent); }
+.md-typeset code { border-radius: .2rem; }
+.md-typeset pre > code { padding: 1rem; border: 1px solid var(--pypto-line); border-radius: .5rem; }
+.md-typeset pre { max-width: 100%; }
+.md-typeset .highlight { max-width: 100%; }
+.md-typeset table:not([class]) { border-radius: .4rem; background: var(--pypto-surface); }
+.md-typeset table:not([class]) th { background: var(--pypto-featured); font-weight: 650; }
+.md-typeset .admonition, .md-typeset details { border-radius: .4rem; font-size: .75rem; }
+.md-nav { font-size: .7rem; line-height: 1.5; }
+.md-nav__link { padding-block: .15rem; }
+.md-nav__link--active { color: var(--pypto-accent); font-weight: 650; }
+.md-nav__title { color: var(--pypto-text); background: transparent; box-shadow: none; }
+.md-sidebar--secondary .md-nav { border-left: 1px solid var(--pypto-line); padding-left: .7rem; }
+.md-search__form { background: var(--pypto-background); border: 1px solid var(--pypto-line); border-radius: .4rem; }
+.md-search__input { color: var(--pypto-text); }
+.md-search__input::placeholder { color: var(--pypto-muted); }
+.md-search__icon { color: var(--pypto-muted); }
+.md-footer { border-top: 1px solid var(--pypto-line); }
+html .md-typeset a:focus-visible, .pypto-header a:focus-visible, .pypto-header summary:focus-visible { outline: 3px solid var(--pypto-accent); outline-offset: 3px; }
+
+@media (max-width: 76.234375em) {
+  .md-nav--primary .md-nav__title { background: var(--pypto-surface); color: var(--pypto-text); }
+  .md-content__inner { margin-inline: 1.2rem; }
+}
+
+@media (max-width: 59.984375em) {
+  .pypto-header .md-header__inner { min-height: 3.2rem; gap: .4rem; }
+  .pypto-header-spacer { display: none; }
+  .pypto-project-switcher { flex: 1; }
+  .pypto-project-switcher summary { justify-content: space-between; }
+  .pypto-project-menu { left: auto; right: 0; }
+}
+
+@media (max-width: 600px) {
+  .pypto-brand span, .pypto-source { display: none; }
+  .pypto-header .md-header__inner { flex-wrap: wrap; gap: .25rem; padding-inline: .4rem; }
+  .pypto-brand img { width: 1.5rem; height: 1.5rem; }
+  .pypto-project-switcher { flex: 1 1 3rem; }
+  .pypto-project-switcher summary { max-width: 11rem; }
+  .pypto-project-menu { position: fixed; top: auto; left: .5rem; right: .5rem; width: auto; max-width: none; margin-top: .5rem; }
+  .pypto-theme-control select { padding-inline: 3px; font-size: 14px; }
+  .md-content__inner { margin-inline: .8rem; }
+  .md-typeset h1 { font-size: 1.6rem; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .pypto-header * { scroll-behavior: auto; transition: none; }
+}
