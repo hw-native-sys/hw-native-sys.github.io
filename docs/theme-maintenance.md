@@ -28,17 +28,9 @@ repository: existing navigation checks read its root `mkdocs.yml` directly.
 ## Integrating a project
 
 Record the full shared repository commit in `docs/theme-revision.txt` and ignore
-`.site-theme/` in the project's `.gitignore`. Fetch that exact revision locally
-and in the project's documentation workflow:
-
-```bash
-set -euo pipefail
-git init .site-theme
-git -C .site-theme fetch --depth 1 \
-  https://github.com/hw-native-sys/hw-native-sys.github.io.git \
-  "$(cat docs/theme-revision.txt)"
-git -C .site-theme checkout --detach FETCH_HEAD
-```
+`.site-theme/` in the project's `.gitignore`. The project's documentation workflow
+must check out that exact revision into `.site-theme/` before installing its
+documentation dependencies.
 
 Add the common constraint file to the project's documentation requirements. For
 `docs/requirements.txt`, the relative include is:
@@ -77,13 +69,8 @@ project retaining optional features such as instant navigation must provide the
 complete feature list, including the shared navigation features. Local plugin,
 hook, and stylesheet lists likewise need to preserve every required entry.
 
-Install only the documentation dependencies and build from that checkout:
-
-```bash
-python -m pip install -r docs/requirements.txt
-mkdocs build --strict
-mkdocs serve
-```
+The documentation workflow installs only the documentation dependencies and
+builds the site with `mkdocs build --strict`.
 
 Keep each project's existing documentation checks and artifact directory. This
 workflow does not require compiling PyPTO, installing CANN, or running device
@@ -125,10 +112,6 @@ upgrading Material or the i18n plugin.
    after a squash, use and validate the resulting commit instead.
 5. Merge each consumer independently, wait for its Pages deployment, and verify
    the deployed assets. The `pypto-docs-theme` metadata identifies this theme.
-
-Roll back a consumer by restoring its previous revision file **and any dependency
-changes required by that revision**, then rebuilding and deploying it. Reverting
-only this repository does not change already deployed consumer sites.
 
 Prefer small template extensions over copying Material's templates. When updating
 Material, verify the header's drawer, search, language, and `data-md-component`
