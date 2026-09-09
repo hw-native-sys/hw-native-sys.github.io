@@ -32,6 +32,7 @@ Record the full shared repository commit in `docs/theme-revision.txt` and ignore
 and in the project's documentation workflow:
 
 ```bash
+set -euo pipefail
 git init .site-theme
 git -C .site-theme fetch --depth 1 \
   https://github.com/hw-native-sys/hw-native-sys.github.io.git \
